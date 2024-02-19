@@ -1,0 +1,17 @@
+A. Front-end needs:
+
+1. create a header bar with:
+   - An Icon
+   - search thingy
+   - user account access
+   - notification for news
+   - favorite button
+   - cart
+   - language choise(maybe)
+
+2. having a product showcase zone
+3. category section
+4. tags
+
+B. Back-end needs:
+suggest using MongoDB
