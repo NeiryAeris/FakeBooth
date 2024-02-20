@@ -1,0 +1,47 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Helvetica,Arial,sans-serif;
+}
+
+/* header section */
+
+#icon {
+    width: 46px;
+    height: 46px;
+    background-color: aqua;
+}
+
+.header_bar {
+    display: flexbox;
+    width: auto;
+    height: 46px;
+    background-color: darkblue;
+}
+
+#user_access {
+    display: flex;
+    width: 600px;
+    height: 46px;
+}
+
+.util {
+    display: block;
+    height: 40px;
+    width: 40px;
+    background-color: aqua;
+}
+
+.util > a{
+    height: 40px;
+    width: 40px;
+    background-color: aqua;
+}
+
+
+
+/* end of header section */
