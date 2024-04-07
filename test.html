@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="test.css">
     <title>Document</title>
 </head>
+
 <body>
     <div class="head-bar">
         <div class="logo">LittleBox</div>
         <div class="search">
-            <input type="text">
-            <button></button>
+            <input type="search" name="search" pattern=".*\S.*" required>
+            <button class="search-btn" type="submit">
+                <span>Search</span>
+            </button>
         </div>
         <div class="menu">
             <a href="#">Discover</a>
@@ -26,4 +30,5 @@
         </div>
     </div>
 </body>
+
 </html>
