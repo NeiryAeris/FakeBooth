@@ -1,9 +1,10 @@
 import Carousel from "react-bootstrap/Carousel";
 import ExampleCarouselImage from "components/ExampleCarouselImage";
-import { render } from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
+// import ReactAppView from './components/ReactAppView';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-const MyFunctionalComponent = ({ name }) => {
+const MyFunctionalComponent = () => {
   return (
     <Carousel>
       <Carousel.Item>
@@ -33,8 +34,4 @@ const MyFunctionalComponent = ({ name }) => {
   );
 }
 
-ReactDOM.render(
-  <MyFunctionalComponent name="John" />,
-  document.querySelector('.comments')
-);
 
