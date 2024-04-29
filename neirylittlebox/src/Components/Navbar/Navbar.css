@@ -1,0 +1,49 @@
+.navbar {
+    background-color: var(--widget-theme);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+  
+  .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .menu {
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .menu a:hover {
+    color: #3498db;
+  }
+  
+  .user-profile {
+    display: flex;
+    align-items: center;
+  }
+  
+  .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .name {
+    font-size: 1em;
+  }
+  
+  .search {
+    align-items: center;
+  }
