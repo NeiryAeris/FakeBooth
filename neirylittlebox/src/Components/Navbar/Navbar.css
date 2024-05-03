@@ -1,49 +1,95 @@
+:root {
+  --main-theme: #3d85c6;
+  --widget-theme: #2c3e50
+}
+
 .navbar {
-    background-color: var(--widget-theme);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-  }
-  
-  .logo {
-    font-size: 1.5em;
-    font-weight: bold;
-  }
-  
-  .menu {
-    display: flex;
-    align-items: center;
-  }
-  
-  .menu a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    transition: all 0.3s ease;
-  }
-  
-  .menu a:hover {
-    color: #3498db;
-  }
-  
-  .user-profile {
-    display: flex;
-    align-items: center;
-  }
-  
-  .avatar {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .name {
-    font-size: 1em;
-  }
-  
-  .search {
-    align-items: center;
-  }
+  background-color: var(--widget-theme);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+  border: 0 1px 3px -2px black;
+}
+
+.icon {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo p{
+  font-size: 40px;
+  margin: 0;
+}
+
+.nav-logo img{
+  width: 40px;
+  height: 40px;
+}
+
+/* -------------------------- */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 50px;
+  color: white;
+}
+
+.nav-menu li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-menu hr{
+  border: none;
+  width: 80%;
+  height: 3px;
+  border-radius: 10px;
+  background: white;
+}
+
+.nav-login-cart{
+  display: flex;
+  align-items: center;
+  gap: 45px;
+}
+
+.nav-login-cart button{
+width: 157px;
+height: 58px;
+outline: none;
+border: 1px solid #7a7a7a7a;
+border-radius: 75px;
+color: white;
+font-size: 20px;
+font-weight: 500;
+background: var(--widget-theme);
+cursor: pointer;
+}
+
+.nav-login-cart button:active{
+background: var(--main-theme);
+}
+
+.nav-cart-count {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -35px;
+  margin-left: -55px;
+  border-radius: 11px;
+  font-size: 14px;
+  background: red;
+  color: white;
+}
