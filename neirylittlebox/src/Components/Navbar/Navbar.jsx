@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './Navbar.css';
 import icon from '../Assets/icon.jpg';
 import cart_icon from '../Assets/cart_icon.png'
+import { Link } from "react-router-dom/dist";
 
 const Navbar = () => {
 
@@ -14,13 +15,13 @@ const Navbar = () => {
                 <p>Little Box</p>
             </div>
             <ul className="nav-menu">
-                <li onClick={() => {setMenu('Gallery')}}>Gallery{menu === "Gallery"?<hr/>:<></>}</li>
-                <li onClick={() => {setMenu('Booth')}}>Booth{menu === "Booth"?<hr/>:<></>}</li>
-                <li onClick={() => {setMenu('Categories')}}>Categories{menu === "Categories"?<hr/>:<></>}</li>
+                <li onClick={() => {setMenu('Gallery')}}><Link to='/'>Gallery</Link>{menu === "Gallery"?<hr/>:<></>}</li>
+                <li onClick={() => {setMenu('Booth')}}><Link to='/Booth'>Booth</Link>{menu === "Booth"?<hr/>:<></>}</li>
+                <li onClick={() => {setMenu('Categories')}}><Link to='/Categories'>Categories</Link>{menu === "Categories"?<hr/>:<></>}</li>
             </ul>
             <div className="nav-login-cart">
-                <button>Login</button>
-                <img src={cart_icon} alt="" />
+                <Link to='login'><button>Login</button></Link>
+                <Link to='/Cart'><img src={cart_icon} alt="" /></Link>
                 <div className="nav-cart-count">0</div>
             </div>
         </div>
