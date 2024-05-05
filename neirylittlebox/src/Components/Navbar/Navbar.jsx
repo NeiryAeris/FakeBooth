@@ -18,11 +18,11 @@ const Navbar = () => {
                 <li onClick={() => {setMenu('Home')}}><Link style={{textDecoration: 'none',color:'white'}} to='/'>Home</Link>{menu === "Home"?<hr/>:<></>}</li>
                 <li onClick={() => {setMenu('Gallery')}}><Link style={{textDecoration: 'none',color:'white'}} to='/Gallery'>Gallery</Link>{menu === "Gallery"?<hr/>:<></>}</li>
                 <li onClick={() => {setMenu('Booth')}}><Link style={{textDecoration: 'none',color:'white'}} to='/Booth'>Booth</Link>{menu === "Booth"?<hr/>:<></>}</li>
-                <li onClick={() => {setMenu('Categories')}}><Link style={{textDecoration: 'none',color:'white'}} to='/Categories'>Categories</Link>{menu === "Categories"?<hr/>:<></>}</li>
+                <li onClick={() => {setMenu('Yard')}}><Link style={{textDecoration: 'none',color:'white'}} to='/Yard'>Yard</Link>{menu === "Yard"?<hr/>:<></>}</li>
             </ul>
             <div className="nav-login-cart">
-                <button>Login</button>
-                <img src={cart_icon} alt="" />
+                <Link to='/Login'><button>Login</button></Link>
+                <Link to='/Cart'><img src={cart_icon} alt="" /></Link>
                 <div className="nav-cart-count">0</div>
             </div>
         </div>
