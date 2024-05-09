@@ -1,6 +1,6 @@
 import { Navbar } from "./components/Navbar/Navbar.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import BoxCategory from "./pages/BoxCategory";
+import ShopCategory from "./pages/ShopCategory.jsx";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
@@ -18,9 +18,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Gallery" element={<BoxCategory banner={gallery_banner} category="men" />} />
-          <Route path="/Booth" element={<BoxCategory banner={booth_banner} category="women" />} />
-          <Route path="/Yard" element={<BoxCategory banner={yard_banner} category="kid" />}/>
+          <Route path="/Gallery" element={<ShopCategory banner={gallery_banner} category="men" />} />
+          <Route path="/Booth" element={<ShopCategory banner={booth_banner} category="women" />} />
+          <Route path="/Yard" element={<ShopCategory banner={yard_banner} category="kid" />}/>
           <Route path="/Product" element={<Product />}>
             <Route path=":ProductId" element={<Product />} />
           </Route>
