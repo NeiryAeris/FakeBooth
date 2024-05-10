@@ -5,7 +5,7 @@ import './Artworks.css'
 const Artworks = (props) => {
   return (
     <div className="artwork">
-      <Link to={`/product/${props.id}`}>
+      <Link to={`/product/${props.id}`} style={{textDecoration:'none',color: '#96969a'}}>
         <img onClick={window.scrollTo(0, 0)} src={props.image} alt={props.name}/>
         <p>{props.name}</p>
         {/* <div className="artwork-prices">
