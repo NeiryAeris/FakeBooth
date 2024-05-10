@@ -1,18 +1,20 @@
 import React from "react";
+import { Link } from 'react-router-dom'
+import './Artworks.css'
 
-const artworks = () => {
+const Artworks = (props) => {
   return (
     <div className="artwork">
       <Link to={`/product/${props.id}`}>
         <img onClick={window.scrollTo(0, 0)} src={props.image} alt={props.name}/>
         <p>{props.name}</p>
-        <div className="item-prices">
-          <div className="item-price-new">${props.new_price}</div>
-          <div className="item-price-old">${props.old_price}</div>
-        </div>
+        {/* <div className="artwork-prices">
+          <div className="artwork-price-new">{props.new_price}</div>
+          <div className="artwork-price-old">{props.old_price}</div>
+        </div> */}
       </Link>
     </div>
   );
 };
 
-export default artworks;
+export default Artworks;
