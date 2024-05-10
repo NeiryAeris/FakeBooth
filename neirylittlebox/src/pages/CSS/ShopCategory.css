@@ -1,3 +1,7 @@
+:root{
+    --text-theme: #fce5cd;
+}
+
 .shopcategory-banner{
     display: block;
     margin: 30px auto;
@@ -13,6 +17,7 @@
     padding: 10px 20px;
     border-radius: 40px;
     border: 1px solid #888;
+    color: var(--text-theme);
 }
 .shopcategory-indexSort p span{
     font-weight: 600;
@@ -22,6 +27,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     row-gap: 80px;
+}
+
+.shop-category p{
+    color: var(--text-theme);
 }
 .shopcategory-loadmore{
     display: flex;

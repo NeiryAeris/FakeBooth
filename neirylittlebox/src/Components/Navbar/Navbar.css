@@ -1,6 +1,12 @@
+:root{
+    --main-theme: #000f2e;
+    --widget-theme:  #003091
+}
+
 .navbar{
     display: flex;
     justify-content: space-around;
+    background-color: var(--main-theme);
     align-items: center;
     padding: 16px;
     box-shadow: 0 1px 3px -2px black;
@@ -11,7 +17,7 @@
     gap: 10px;
 }
 .nav-logo p{
-    color: #171717;
+    color: #fce5cd;
     font-size: 38px;
     font-weight: 600;
 }
@@ -37,7 +43,7 @@
     width: 80%;
     height: 3px;
     border-radius: 10px;
-    background: #FF4141;
+    background: #d4d4d4;
 }
 .nav-login-cart{
     display: flex;
@@ -50,9 +56,9 @@
     outline: none;
     border: 1px solid #7a7a7a;
     border-radius: 75px;
-    color: #515151;
+    color: #d4d4d4;
     font-weight: 500;
-    background: white;
+    background: #404044;
     cursor: pointer;
 }
 .nav-login-cart button:active{

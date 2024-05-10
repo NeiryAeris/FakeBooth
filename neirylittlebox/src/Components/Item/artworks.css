@@ -4,11 +4,9 @@
 }
 .item img{
     width: 280px;    
-    height: 280px;
 }
 .item p {
     margin: 6px 0px;
-    color: #e6e6ea;
 }
 .item-prices{
     display: flex;
