@@ -8,7 +8,7 @@
     justify-content: space-around;
     background-color: var(--main-theme);
     align-items: center;
-    padding: 16px;
+    padding: 10px;
     box-shadow: 0 1px 3px -2px black;
 }
 .nav-logo{
@@ -16,6 +16,13 @@
     align-items: center;
     gap: 10px;
 }
+
+.nav-logo img{
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+}
+
 .nav-logo p{
     color: #fce5cd;
     font-size: 38px;
