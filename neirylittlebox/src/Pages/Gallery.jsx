@@ -3,7 +3,6 @@ import "./CSS/Gallery.css";
 import { ShopContext } from "../Context/ShopContext";
 import dropdown_icon from "../Components/Assets/dropdown_icon.png";
 import Item from "../Components/Item/Item";
-import artworks from "../Components/Item/Artworks";
 import Artworks from "../Components/Item/Artworks";
 
 const Gallery = (props) => {

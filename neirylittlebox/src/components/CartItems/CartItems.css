@@ -1,3 +1,9 @@
+:root{
+    --main-theme:#000f2e;
+    --bg-theme:#0b5394;
+    --text-theme: #fce5cd;
+}
+
 .cartitems{
     margin: 100px 170px;
 }
