@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ShopContextProvider from './Context/ShopContext';
+import mongoose from 'mongoose';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

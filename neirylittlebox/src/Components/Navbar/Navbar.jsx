@@ -22,9 +22,13 @@ const Navbar = () => {
     };
   return (
     <div className='navbar'>
-        <div className='nav-logo'>
+        <div className='nav-logo' onClick={()=>{setMenu("shop")}}>
+            <Link to='/' style={{textDecoration:'none',color: '#96969a',display:'flex'}}>
             <img src={logo} alt="" />
             <p>LittleBox</p>
+            </Link>
+            {/* <img src={logo} alt="" />
+            <p>LittleBox</p> */}
         </div>
         <img onClick={dropdown_toggle} src={nav_dropdown} alt="" className='nav-dropdown' />
         <div className="search"><input type="text" onKeyPress={handleSearchKeyPress} placeholder='Type something'/></div>
