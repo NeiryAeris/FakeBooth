@@ -18,7 +18,7 @@
     align-items: center;
     gap: 75px;
     padding: 20px 0px;
-    color: #454545;
+    color: var(--text-theme);
     font-size: 18px;
     font-weight: 600;
 }
@@ -64,6 +64,7 @@
 }
 .cartitems-total-item{
     display: flex;
+    color: var(--text-theme);
     justify-content: space-between;
     padding: 15px 0px;
 }

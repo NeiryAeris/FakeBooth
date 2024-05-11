@@ -6,6 +6,7 @@
 .artwork img {
     width: 280px;
     height: 280px;
+    object-fit: cover;
 }
 
 .artwork p {

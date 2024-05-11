@@ -23,19 +23,19 @@
     font-weight: 600;
 }
 
-.gallery-products{
+/* .gallery-products{
     margin: 20px 170px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     row-gap: 30px;
-}
+} */
 
-/* .gallery-products {
+.gallery-products {
     margin: 20px 5%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
-} */
+}
 
 .gallery p{
     color: var(--text-theme);

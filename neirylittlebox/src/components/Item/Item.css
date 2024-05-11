@@ -5,6 +5,7 @@
 .item img{
     width: 280px;    
     height: 280px;
+    object-fit: cover
 }
 .item p {
     margin: 6px 0px;
