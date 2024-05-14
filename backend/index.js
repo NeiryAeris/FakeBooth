@@ -139,3 +139,18 @@ app.post('/addproduct',async(req,res)=>{
       name:req.body.name,
   })
 })
+
+app.get('/allproducts',async (req,res) =>{
+  let products = await Product.find({});
+  console.log('All products has been fetched');
+  res.send(products)
+})
+
+app.post('/removeproduct', async (req,res) => {
+    await Product.findOneAndDelete({id:req.body.id})
+    console.log('Removed');
+    res.json({
+      success:true,
+      name: req.body.name
+    })
+})
