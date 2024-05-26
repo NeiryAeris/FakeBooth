@@ -10,7 +10,7 @@ import gallery_banner from './Components/Assets/banner_gallery.jpg'
 import booth_banner from './Components/Assets/banner_booth.jpg'
 import Gallery from './Pages/Gallery';
 import Home from './Pages/Home';
-import Admin from './Pages/Admin/Admin.jsx'
+import Profile from './Pages/Profile/Profile.jsx'
 
 
 function App() {
@@ -29,8 +29,11 @@ function App() {
         <Route  path='/Cart' element ={<Cart/>}/>
         <Route  path='/login' element ={<LoginSignup/>}/>
 
-        <Route  path='/profile' element ={<Admin/>}/>
+        {/* <Route  path='/profile' element ={<Profile/>}/> */}
         {/* <Route  path=':userId' element ={<Admin/>}/> */}
+        
+        {/* <Route path="/lounge" element={<Lounge />} /> */}
+        <Route path="/profile" element={<Profile />} />
       </Routes>
       <Footer/>
       </BrowserRouter> 

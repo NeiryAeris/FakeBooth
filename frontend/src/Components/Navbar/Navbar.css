@@ -103,6 +103,18 @@
     font-weight: 500;
     background: #404044;
     cursor: pointer;
+} */
+
+.login-button{
+    width: 157px;
+    height: 58px;
+    outline: none;
+    border: 1px solid #7a7a7a;
+    border-radius: 75px;
+    color: #d4d4d4;
+    font-weight: 500;
+    background: #404044;
+    cursor: pointer;
 }
 
 .nav-login-cart button:active {

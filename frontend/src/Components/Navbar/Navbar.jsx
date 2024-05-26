@@ -82,7 +82,7 @@ const Navbar = () => {
           </div>
         ) : (
           <Link to="/login" style={{ textDecoration: "none" }}>
-            <button>Login</button>
+            <button className="login-button">Login</button>
           </Link>
         )}
         
