@@ -40,10 +40,10 @@ const UserMenu = ({ user }) => {
         </div>
         {isOpen && (
           <div className="user-menu-control">
-            <Link to="" element={""}>
+            <Link to="/profile" element={""}>
               Profile
             </Link>
-            <Link to="" element={""}>
+            <Link to="/profile" element={""}>
               Setting
             </Link>
             <button onClick={handleLogout}>Logout</button>
