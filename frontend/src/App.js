@@ -19,11 +19,15 @@ function App() {
         <Route  path='/' element ={<Home/>}/>
         <Route  path='/booths' element ={<ShopCatergory banner={booth_banner} category="booth"/>}/>
         <Route  path='/Gallery' element ={<Gallery banner={gallery_banner} category="gallery"/>}/>
+
         <Route  path='/product/:productId' element ={<Product/>}/>
         <Route  path=':productId' element ={<Product/>}/>
-        <Route/>
+
         <Route  path='/Cart' element ={<Cart/>}/>
         <Route  path='/login' element ={<LoginSignup/>}/>
+
+        <Route  path='/profile/:userId' element ={<Product/>}/>
+        <Route  path=':userId' element ={<Product/>}/>
       </Routes>
       <Footer/>
       </BrowserRouter> 

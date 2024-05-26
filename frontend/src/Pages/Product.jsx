@@ -3,6 +3,7 @@ import { ShopContext } from '../Context/ShopContext'
 import { useParams } from 'react-router-dom';
 import Breadcrums from '../Components/Breadcrums/Breadcrums';
 import ProductDisplay from '../Components/ProductDisplay/ProductDisplay';
+import ArtworkDisplay from '../Components/ArtWorkDisplay/ArtworkDisplay'
 import DescriptionBox from '../Components/DescriptionBox/DescriptionBox';
 import RelatedProducts from '../Components/RelatedProducts/RelatedProducts';
 
@@ -13,7 +14,8 @@ const Product = () => {
   return (
     <div>
       <Breadcrums product={product} />
-      <ProductDisplay product={product} />
+      {product.category == 'gallery'?<ArtworkDisplay product={product}/>:<ProductDisplay product={product} />}
+      
       <DescriptionBox />
       <RelatedProducts/>
     </div>
