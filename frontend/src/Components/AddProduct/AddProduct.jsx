@@ -52,7 +52,8 @@ const AddProduct = () => {
     }
   };
   const getImageSrc = () => {
-    return image ? URL.createObjectURL(image) : upload_area;
+    // return image ? URL.createObjectURL(image) : upload_area;
+    return (<div></div>);
   };
   return (
     <div className='add-product'>

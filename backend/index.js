@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 const port = 4000;
 const express = require("express");
 const app = express();
@@ -13,9 +13,7 @@ app.use(express.json());
 app.use(cors());
 
 //Connect to database
-mongoose.connect(
-  process.env.DB_URL
-);
+mongoose.connect(process.env.DB_URL);
 
 //Create API
 app.get("/", (req, res) => {
@@ -25,7 +23,10 @@ app.get("/", (req, res) => {
 const storage = multer.diskStorage({
   destination: "./upload/images",
   filename: (req, file, cb) => {
-    return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`);
+    return cb(
+      null,
+      `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`
+    );
   },
 });
 const upload = multer({ storage: storage });
@@ -43,7 +44,6 @@ const Product = mongoose.model("Product", {
     type: Number,
     required: true,
   },
-  user_id: mongoose.Schema.Types.ObjectId,
   name: {
     type: String,
     required: true,
@@ -75,6 +75,10 @@ const Product = mongoose.model("Product", {
 });
 //Schema Users
 const Users = mongoose.model("Users", {
+  // id: {
+  //   type: Number,
+  //   required: true,
+  // },
   name: {
     type: String,
   },
@@ -96,9 +100,20 @@ const Users = mongoose.model("Users", {
 
 //Endpoint make user
 app.post("/signup", async (req, res) => {
+  let users = await Users.find({});
+  // let id;
+  // if (users.length > 0) {
+  //   let last_user_array = users.slice(-1);
+  //   let last_user = last_user_array[0];
+  //   id = last_user.id + 1;
+  // } else {
+  //   id = 1;
+  // }
   let check = await Users.findOne({ email: req.body.email });
   if (check) {
-    return res.status(400).json({ success: false, errors: "User already exist" });
+    return res
+      .status(400)
+      .json({ success: false, errors: "User already exist" });
   }
   let cart = {};
   for (let i = 0; i < 300; i++) {
@@ -217,7 +232,10 @@ app.post("/addtocart", fetchUser, async (req, res) => {
   try {
     let userData = await Users.findOne({ _id: req.user.id });
     userData.cartData[req.body.itemId] += 1;
-    await Users.findOneAndUpdate({ _id: req.user.id }, { cartData: userData.cartData });
+    await Users.findOneAndUpdate(
+      { _id: req.user.id },
+      { cartData: userData.cartData }
+    );
     res.json({ message: "Added" });
   } catch (error) {
     console.error(error);
@@ -229,8 +247,12 @@ app.post("/removefromcart", fetchUser, async (req, res) => {
   try {
     console.log("removed", req.body.itemId);
     let userData = await Users.findOne({ _id: req.user.id });
-    if (userData.cartData[req.body.itemId] > 0) userData.cartData[req.body.itemId] -= 1;
-    await Users.findOneAndUpdate({ _id: req.user.id }, { cartData: userData.cartData });
+    if (userData.cartData[req.body.itemId] > 0)
+      userData.cartData[req.body.itemId] -= 1;
+    await Users.findOneAndUpdate(
+      { _id: req.user.id },
+      { cartData: userData.cartData }
+    );
     res.json({ message: "Removed" });
   } catch (error) {
     console.error(error);
@@ -239,9 +261,14 @@ app.post("/removefromcart", fetchUser, async (req, res) => {
 });
 // Lấy cart
 app.post("/getcart", fetchUser, async (req, res) => {
-  console.log("get cart");
-  let userData = await Users.findOne({ _id: req.user.id });
-  res.json(userData.cartData);
+  try {
+    console.log("get cart");
+    let userData = await Users.findOne({ _id: req.user.id });
+    res.json(userData.cartData);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server Error");
+  }
 });
 app.listen(port, (error) => {
   if (!error) {

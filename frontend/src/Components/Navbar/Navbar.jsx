@@ -9,7 +9,7 @@ import UserMenu from "../UserMenu/UserMenu";
 // import bookmark from "./bookmark.png";
 
 const Navbar = () => {
-  const [menu, setMenu] = useState("shop");
+  const [menu, setMenu] = useState("home");
   // const { getTotalCartItems } = useContext(ShopContext);
   const { getTotalCartItems } = useContext(ShopContext);
   const menuRef = useRef();
@@ -28,7 +28,7 @@ const Navbar = () => {
       <div
         className="nav-logo"
         onClick={() => {
-          setMenu("shop");
+          setMenu("home");
         }}
       >
         <Link to="/" style={{ textDecoration: "none", color: "#96969a", display: "flex", gap: "5px" }}>
@@ -45,13 +45,13 @@ const Navbar = () => {
       <ul ref={menuRef} className="nav-menu">
         <li
           onClick={() => {
-            setMenu("shop");
+            setMenu("home");
           }}
         >
           <Link to="/" style={{ textDecoration: "none", color: "#96969a" }}>
-            Shop
+            Home
           </Link>{" "}
-          {menu === "shop" ? <hr /> : <></>}
+          {menu === "home" ? <hr /> : <></>}
         </li>
         <li
           onClick={() => {

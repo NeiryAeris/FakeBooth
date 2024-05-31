@@ -35,10 +35,15 @@ const ArtworkDisplay = (props) => {
           <div className="artworkdisplay-right-price-new">${product.new_price}</div>
         </div> */}
         <div className="artworkdisplay-right-descriptions">
-          A type of garment worn over the upper body, typically extending from the neck to the waist or hips, and
-          sleeves. It is designed to provide warmth and protection from cold weather while also offering style and
-          fashion. Jackets come in various styles, lengths, and materials, making them versatile for different occasions
-          and climates.
+          This digital artwork features a vibrant and imaginative composition,
+          blending bold colors and dynamic shapes to create a visually striking
+          scene. The use of digital tools allows for intricate details and
+          smooth gradients, bringing depth and texture to the piece. The artwork
+          may depict abstract forms, surreal landscapes, or fantastical
+          creatures, showcasing the artist's creativity and technical skill.
+          Overall, the piece exemplifies the limitless possibilities of digital
+          art, merging technology with artistic expression to captivate and
+          inspire viewers
         </div>
         <div className="artworkdisplay-right-size">
           <h1>Do something?</h1>

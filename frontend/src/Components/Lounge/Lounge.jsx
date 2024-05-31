@@ -1,7 +1,11 @@
 import React from 'react'
 
-export const Lounge = () => {
+const Lounge = () => {
   return (
-    <div>Lounge</div>
+    <div className='lounge'>
+      
+    </div>
   )
 }
+
+export default Lounge
