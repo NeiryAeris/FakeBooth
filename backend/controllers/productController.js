@@ -1,13 +1,4 @@
-import multer from "multer";
-import path from "path";
 import productModel from "../models/productModel.js";
-
-const upload = async (req,res) => {
-  res.json({
-    success: 1,
-    image_url: `http://localhost:${port}/products/${req.file.filename}`,
-  })
-}
 
 const addProduct = async (res, req) => {
   try {
@@ -54,4 +45,4 @@ const allProduct = async (req,res) => {
   res.send(products);
 }
 
-export {upload,addProduct,removeProduct,allProduct}
+export {addProduct,removeProduct,allProduct}

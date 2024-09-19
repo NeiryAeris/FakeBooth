@@ -1,9 +1,9 @@
 import multer from "multer";
 import express from "express";
-import { upload, addProduct, removeProduct, allProduct } from "../controllers/productController.js";
+import { addProduct, removeProduct, allProduct } from "../controllers/productController.js";
+import path from "path";
 
 const productRouter = express.Router();
-// const upload = multer({ storage: storage });
 
 const storage = multer.diskStorage({
   destination: "./upload/images",
@@ -12,7 +12,12 @@ const storage = multer.diskStorage({
   },
 });
 
-productRouter.post("/upload", upload.single("product"), upload);
+const upload = multer({ storage: storage });
+
+productRouter.post("/upload", upload.single("product"), (req, res) => {
+  // Handle file upload response
+  res.send("File uploaded successfully");
+});
 productRouter.post("/addproduct", addProduct);
 productRouter.post("/removeproduct", removeProduct);
 productRouter.get("/allproducts", allProduct);

@@ -11,6 +11,6 @@ const productSchema = new mongoose.Schema({
   avilable: { type: Boolean, default: true },
 });
 
-const productModel = mongoose.models.products || mongoose.model("users", productSchema);
+const productModel = mongoose.models.products || mongoose.model("products", productSchema);
 
 export default productModel;
