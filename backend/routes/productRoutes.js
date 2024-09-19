@@ -3,7 +3,7 @@ import express from "express";
 import { upload, addProduct, removeProduct, allProduct } from "../controllers/productController.js";
 
 const productRouter = express.Router();
-const upload = multer({ storage: storage });
+// const upload = multer({ storage: storage });
 
 const storage = multer.diskStorage({
   destination: "./upload/images",
