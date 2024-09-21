@@ -1,6 +1,8 @@
 import productModel from "../models/productModel.js";
+const port = 4000;
+let id = 0;
 
-const addProduct = async (res, req) => {
+const addProduct = async (req, res) => {
   try {
     let products = await productModel.find({});
     if (products.length > 0) {
@@ -10,7 +12,10 @@ const addProduct = async (res, req) => {
     } else {
       id = 1;
     }
-    let image_filename = `${req.file.filename}`;
+
+    // let image_filename = `${req.file.filename}`;
+    let image_filename = req.file.filename;
+
     const product = new productModel({
       id: id,
       name: req.body.name,
@@ -19,30 +24,41 @@ const addProduct = async (res, req) => {
       new_price: req.body.new_price,
       old_price: req.body.old_price,
     });
+
     console.log(product);
     await product.save();
     console.log("SAVED");
-    res.json({ success: true, message: "Product Added", name: req.body.name });
+
+    res.json({
+      success: true,
+      message: "Product Added",
+      name: req.body.name,
+      image_url: `http://localhost:${port}/images/${image_filename}`,
+    });
   } catch (error) {
     console.log(error);
+    res.status(500).json({ success: false, message: "Failed to add product" });
   }
-  res.json({
-    success: 1,
-    image_url: `http://localhost:${port}/images/${req.file.filename}`,
-  });
 };
 
 const removeProduct = async (req, res) => {
-  await productModel.findByIdAndDelete({ id: req.body.id });
-  console.log("Removed");
-  res.json({ success: true, name: req.body.name });
+  try {
+    await productModel.findOneAndDelete({ id: req.body.id });
+    console.log("Removed");
+    res.json({ success: true, name: req.body.name });
+  } catch (error) {
+    res.status(500).json({ success: false, message: "Failed to remove product" });
+  }
 };
 
+const allProduct = async (req, res) => {
+  try {
+    let products = await productModel.find({});
+    console.log("All products fetched!");
+    res.send(products);
+  } catch (error) {
+    res.status(500).json({ success: false, message: "Failed to fetch products" });
+  }
+};
 
-const allProduct = async (req,res) => {
-  let products = await productModel.find({});
-  console.log('All product fetcheted!');
-  res.send(products);
-}
-
-export {addProduct,removeProduct,allProduct}
+export { addProduct, removeProduct, allProduct };
