@@ -17,7 +17,7 @@ const addToCart = async (req, res) => {
   }
 };
 
-const removefromcart = async (req, res) => {
+const removeFromCart = async (req, res) => {
   try {
     let userData = await usermodel.findById(req.body.userId);
     let cartData = await userData.cartData;
