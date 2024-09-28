@@ -20,6 +20,7 @@ app.use("/cart", cartRouter);
 
 app.get("/", (req, res) => {
   res.send("Express App is running");
+  console.log("Express is running");
 });
 
 app.listen(port, () => console.log(`Server started on http://localhost:${port}`));
