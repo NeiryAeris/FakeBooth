@@ -16,6 +16,7 @@ dbConnect();
  
 
 app.use('/products',productRouter);
+app.use('/images',express.static('./upload/images'))
 app.get('/', (req, res) => {
     res.send('Express App is running')
 });

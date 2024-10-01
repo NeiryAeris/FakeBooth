@@ -14,12 +14,12 @@ const addProduct = async (req, res) => {
     }
 
     // let image_filename = `${req.file.filename}`;
-    let image_filename = req.file.filename;
+    let image_filenames = req.files.map(file  => file.filename);
 
     const product = new productModel({
       id: id,
       name: req.body.name,
-      image: image_filename,
+      image: image_filenames,
       category: req.body.category,
       new_price: req.body.new_price,
       old_price: req.body.old_price,
@@ -33,7 +33,7 @@ const addProduct = async (req, res) => {
       success: true,
       message: "Product Added",
       name: req.body.name,
-      image_url: `http://localhost:${port}/images/${image_filename}`,
+      image_url: image_filenames.map(filename =>`http://localhost:${port}/images/${image_filename}`),
     });
   } catch (error) {
     console.log(error);

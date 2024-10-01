@@ -15,13 +15,13 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-productRouter.post("/upload", upload.single("product"), (req, res) => {
+productRouter.post("/upload", upload.array("product",5), (req, res) => {
   // Handle file upload response
   res.send("File uploaded successfully");
 });
 
 
-productRouter.post("/addproduct", upload.single("image"), addProduct);
+productRouter.post("/addproduct", upload.array("image",5), addProduct);
 productRouter.post("/removeproduct", removeProduct);
 productRouter.get("/allproducts", allProduct);
 
