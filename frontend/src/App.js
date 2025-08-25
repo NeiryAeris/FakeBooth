@@ -1,4 +1,3 @@
-import './App.css';
 import Navbar from './Components/Navbar/Navbar';
 import { BrowserRouter,Route,Routes } from 'react-router-dom';
 import ShopCatergory from './Pages/ShopCategory';

@@ -6,7 +6,7 @@ import NewCollections from '../Components/NewCollections/NewCollections'
 import NewsLetter from '../Components/Newsletter/NewsLetter'
 const Home = () => {
   return (
-    <div>
+    <div className=''>
         <Hero/>
         <Popular/>
         <Offer/>

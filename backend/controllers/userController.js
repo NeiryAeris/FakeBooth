@@ -1,62 +1,56 @@
 import jwt from "jsonwebtoken";
-import userModel from "../models/userModel";
+import userModel from "../models/userModel.js"; // fix path
 
 const userSignUp = async (req, res) => {
-  let check = await userModel.findOne({ email: req.body.email });
-  if (check) {
-    return res.status.json({ success: false, errors: "User already exist" });
+  const { username, name, email, password } = req.body;
+  const finalUsername = username ?? name; // accept either 'username' or 'name'
+
+  if (!finalUsername || !email || !password) {
+    return res.status(400).json({ success: false, errors: "username, email, password are required" });
   }
-  let cart = {};
-  for (let i = 0; i < 300; i++) {
-    cart[i] = 0;
+
+  const exists = await userModel.findOne({ $or: [{ email }, { username: finalUsername }] });
+  if (exists) {
+    return res.status(409).json({ success: false, errors: "User already exist" }); // fix status.json
   }
-  const user = new userModel({
-    username: req.body.name,
-    email: req.body.email,
-    password: req.body.password,
+
+  const cart = Object.fromEntries(Array.from({ length: 300 }, (_, i) => [i, 0]));
+
+  const user = await userModel.create({
+    username: finalUsername,
+    email,
+    password, // plain for now (you said you'll handle security later)
     cartData: cart,
   });
-  await user.save();
-  const data = {
-    user: {
-      id: user.id,
-    },
-  };
-  const token = jwt.sign(data, "secret_ecom");
+
+  const token = jwt.sign({ user: { id: user.id } }, "secret_ecom");
   res.json({ success: true, token });
+  console.log("New user signed up:", user.username);
 };
 
 const userLogin = async (req, res) => {
-  let user = await userModel.findOne({ email: req.body.email });
-  if (user) {
-    const passCompare = req.body.password === user.password;
-    if (passCompare) {
-      const data = {
-        user: {
-          id: user.id,
-        },
-      };
-      const token = jwt.sign(data, "secret_ecom");
-      res.json({ success: true, token });
-    } else {
-      res.json({ success: false, errors: "Wrong pasword" });
-    }
-  } else {
-    res.json({ success: false, errors: "Email does not exist" });
-  }
+  const { email, password } = req.body;
+  // password is select:false in the model -> must select it explicitly
+  const user = await userModel.findOne({ email }).select("+password");
+  if (!user) return res.json({ success: false, errors: "Email does not exist" });
+
+  const ok = password === user.password; // dev-only compare
+  if (!ok) return res.json({ success: false, errors: "Wrong password" });
+
+  const token = jwt.sign({ user: { id: user.id } }, "secret_ecom");
+  res.json({ success: true, token });
+  console.log("User logged in:", user.username);
 };
 
 const fetchUser = async (req, res, next) => {
   const token = req.header("auth-token");
-  if (!token) {
-    return res.status(401).send({ errors: "Use the right username" });
-  }
+  if (!token) return res.status(401).send({ errors: "Unauthorized" });
   try {
     const data = jwt.verify(token, "secret_ecom");
     req.user = data.user;
     next();
-  } catch (error) {
-    res.status(401).send({ errors: "Use the right username" });
+  } catch {
+    res.status(401).send({ errors: "Unauthorized" });
   }
 };
 
